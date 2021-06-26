@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class GreenClassifier : MonoBehaviour
+public class GlassClassifier : MonoBehaviour
 {
     private Rigidbody rb;
 
@@ -18,15 +18,12 @@ public class GreenClassifier : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        Debug.Log(other);
         if (other.gameObject.CompareTag("Glass"))
         {
-            Debug.Log("Classificou corretamente");
+            Debug.Log("Glass +1");
         }
-        else
-        {
-            Debug.Log("Classificou incorretamente");
-
+        else{
+            Debug.Log(other.tag);
         }
     }
 

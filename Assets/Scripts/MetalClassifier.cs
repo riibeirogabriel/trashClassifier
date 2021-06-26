@@ -4,27 +4,26 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class BlueClassifier : MonoBehaviour
+public class MetalClassifier : MonoBehaviour
 {
-    //private Rigidbody rb;
+    private Rigidbody rb;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Paper"))
-        {
-            Debug.Log("Classificou corretamente");
-        }
-        else
-        {
-            Debug.Log("Classificou incorretamente");
 
+        if (other.gameObject.CompareTag("Metal"))
+        {
+            Debug.Log("Metal +1");
+        }
+        else{
+            Debug.Log(other.tag);
         }
     }
 
