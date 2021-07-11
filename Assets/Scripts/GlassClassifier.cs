@@ -5,27 +5,25 @@ using UnityEngine.InputSystem;
 
 public class GlassClassifier : MonoBehaviour
 {
-    public GameObject somePrefab;
-    private GameObject ball;
 
+    public PlayerComponent player;
     // Start is called before the first frame update
     void Start()
     {
-        ball = GameObject.Find("Ball");
-        ball.SetActive(false);
+	//this.player = new PlayerComponent();
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
+        player.GetNextPlayer();
         if (other.gameObject.CompareTag("Glass"))
         {
-            ball.SetActive(true);
-            other.gameObject.SetActive(false);
-
-            Debug.Log("Glass +1");
+            //other.gameObject.SetActive(false);
+	    Debug.Log("PARABENS VOCE ACERTOU");
         }
         else{
+	    Debug.Log("Infelizmente vc errou a lixeira certa é:");
             Debug.Log(other.tag);
         }
     }

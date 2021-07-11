@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class MetalClassifier : MonoBehaviour
 {
     private Rigidbody rb;
-
+    public PlayerComponent player;
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +18,13 @@ public class MetalClassifier : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
+        player.GetNextPlayer();
         if (other.gameObject.CompareTag("Metal"))
         {
-            Debug.Log("Metal +1");
+	    Debug.Log("PARABENS VOCE ACERTOU");
         }
         else{
+	    Debug.Log("Infelizmente vc errou a lixeira certa é:");
             Debug.Log(other.tag);
         }
     }
