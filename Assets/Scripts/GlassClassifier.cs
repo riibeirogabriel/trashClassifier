@@ -16,15 +16,17 @@ public class GlassClassifier : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        player.GetNextPlayer();
+
         if (other.gameObject.CompareTag("Glass"))
         {
+	        player.GetNextPlayer(true);
             //other.gameObject.SetActive(false);
-	    Debug.Log("PARABENS VOCE ACERTOU");
+	    		Debug.Log("PARABENS VOCE ACERTOU");
         }
         else{
-	    Debug.Log("Infelizmente vc errou a lixeira certa é:");
-            Debug.Log(other.tag);
+	        player.GetNextPlayer(false);
+	    		Debug.Log("Infelizmente vc errou a lixeira certa é:");
+          Debug.Log(other.tag);
         }
     }
 

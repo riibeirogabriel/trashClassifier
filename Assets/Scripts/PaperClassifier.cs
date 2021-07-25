@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PaperClassifier : MonoBehaviour
 {
     private Rigidbody rb;
-
+    public PlayerComponent player;
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +20,13 @@ public class PaperClassifier : MonoBehaviour
 
         if (other.gameObject.CompareTag("Paper"))
         {
-            Debug.Log("Paper +1");
+ 				player.GetNextPlayer(true);
+	    		Debug.Log("PARABENS VOCE ACERTOU");
         }
         else{
-            Debug.Log(other.tag);
+ 				player.GetNextPlayer(false);
+	    		Debug.Log("Infelizmente vc errou a lixeira certa é:");
+          Debug.Log(other.tag);
         }
-    }
-
+	}
 }

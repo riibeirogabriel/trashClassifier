@@ -18,12 +18,14 @@ public class MetalClassifier : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        player.GetNextPlayer();
+
         if (other.gameObject.CompareTag("Metal"))
         {
+		        player.GetNextPlayer(true);
 	    Debug.Log("PARABENS VOCE ACERTOU");
         }
         else{
+        player.GetNextPlayer(false);
 	    Debug.Log("Infelizmente vc errou a lixeira certa é:");
             Debug.Log(other.tag);
         }
